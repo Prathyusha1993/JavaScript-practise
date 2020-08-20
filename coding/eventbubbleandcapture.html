@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<body>
+  <style>
+    body * {
+      margin: 10px;
+      border: 1px solid blue;
+    }
+  </style>
+
+  <form>
+    FORM
+    <div>
+      DIV
+      <p>P</p>
+    </div>
+  </form>
+
+  <script>
+    for (let elem of document.querySelectorAll("*")) {
+      elem.addEventListener(
+        "click",
+        (e) => alert(`capturing: ${elem.tagName}`),
+        true
+      );
+      elem.addEventListener("click", (e) => alert(`Bubbling: ${elem.tagName}`));
+    }
+  </script>
+</body>
+
+<!-- -------------------------------------------------------------------------- -->
+<!-- what to do to stop event bubbling - use stopPropagation() to stop the event to travel from botttom to top -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evevnt bubbling</title>
+  </head>
+  <body>
+    <div id="parent">
+      <button id="child" onClick="event.stopPropagation()">
+        Child
+      </button>
+    </div>
+
+    <script>
+      var parent = document.querySelectorAll("#parent");
+      parent.addEventListener("click", function () {
+        console.log("parent clicked");
+      });
+
+      var child = document.querySelectorAll("child");
+      child.addEventListener("click", function () {
+        conosle.log("child clicked");
+      });
+    </script>
+  </body>
+</html>
+<!-- ------------------------------------------------------------------------- -->
+<!-- function without DOM manipulation -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM manipulation</title>
+  </head>
+  <body>
+    <div>A</div>
+    <div>B</div>
+    <div>C</div>
+    <div>D</div>
+
+    <script>
+      let divs = document.querySelectorAll("div");
+      divs.forEach(function (e, index) {
+        e.onclick = () => {
+          alert(e.innerHTML + "alert" + e.innerHTML);
+        };
+      });
+    </script>
+  </body>
+</html>
+
+<!-- -------------------------------------------------------------------------- -->
+<!-- Adding a new elemnt to DOM -->
+<div id="main">
+  <h1>this is DOM manipulation</h1>
+  <p>trying to insert a new element using DOM manipulation</p>
+</div>
+
+<script>
+  var newElem = document.createElement("div");
+  var text = document.createTextNode("HI, How are you doing");
+  newElem.appendChild(text);
+  var currentDiv = document.getElementById("main");
+  document.body.appendChild(newElem, text);
+</script>

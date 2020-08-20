@@ -58,7 +58,7 @@ c.add(4);
 c.retrieve();
 
 //----------------------------------------------------------------------------
-//another example of closure
+//another example of function
 function createBase(num) {
   return function (N) {
     return num + N;
@@ -68,7 +68,7 @@ function createBase(num) {
 var addSix = createBase(6);
 console.log(addSix(10));
 console.log(addSix(20));
-//--------------------------------------------------------------
+//--------------------------------------------------------------------
 function number(num) {
   return num % 1 === 0;
 }
@@ -145,3 +145,4 @@ function multiply(x) {
 }
 
 console.log(multiply(5)(6));
+//-----------------------------------------------------------------
