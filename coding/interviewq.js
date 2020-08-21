@@ -93,3 +93,10 @@ person.sort(function (a, b) {
   return 0;
 });
 console.log(person);
+//--------------------------------------------------------------------
+//sort
+const baz = ["My cat ate my homework", 37, 9, 5, 17];
+const sortedBaz = [...baz].sort();
+
+console.log(baz);
+console.log(sortedBaz);
