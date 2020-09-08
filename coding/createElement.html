@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>(
+<body>
+    <script>
+        let div = document.createElement('div');
+        div.id='content';
+        div.class="note";
+        div.innerHTML = '<p>create Element example</p>'; //adding piece of text to div use innerHTML
+        let text =document.createTextNode('create element example'); //craete a new text node and append it todiv
+        let h2 = document.createElement('h2'); //adding an element to div
+        h2.textContent = 'add h2 element to div';
+        div.appendChild(h2);
+        div.appendChild(text);
+        document.body.appendChild(div);//adding div to document
+    </script>
+</body>
+</html>
+<!-- --------------------------------------------------------- -->
+<!-- creating new list of items exapmle -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        <ul id="menu">
+            <li>Home</li>
+        </ul>
+        let li = document.createElement('li');
+        li.textContent="products";
+        menu.appendChild(li);
+
+        li = document.createElement('li');
+        li.textContent="About us";
+
+        const menu = document.querySelector("#menu");
+        menu.appendChild(li);
+    </script>
+</body>
+</html>
+<!-- //-------------------------------------------------------------- -->
+<!-- write a func to print data from URL as input -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function parseURL(url){
+  var parser = document.createElement('a');
+  parser.href=url;
+  return {
+    protocal:parser.protocal,
+    host:parser.host,
+    hostname:parser.hostname,
+    port:parser.port,
+    pathname:parser.pathname,
+    search:parser.search,
+    searchObj:parser.searchObj,
+    hash:parser.hash
+  };
+}
+console.log(parseURL("http://example.com:3000/pathname/?search=test#hash"));
+    </script>
+</body>
+</html>
+

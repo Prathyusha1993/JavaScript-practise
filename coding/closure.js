@@ -95,3 +95,27 @@ function simple(num1, num) {
 console.log(d);
 console.log(e);
 console.log(simple(5, 4));
+//----------------------------------------------------------------
+//closure example
+var globalobj = "global";
+(function sample(outArg) {
+  var a = 10;
+  (function sample1(inArg) {
+    var b = 10;
+    console.log(a + b);
+    console.log(outArg);
+    console.log(inArg);
+  })("pinky");
+})(5);
+
+//closure
+var glo = "praty";
+(function wow(name) {
+  var sfe = 10;
+  (function amazing(name1) {
+    var wr = 30;
+    console.log(sfe * wr);
+    console.log(name);
+    console.log(name1);
+  })("radha");
+})("krishna");
