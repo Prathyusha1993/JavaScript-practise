@@ -1,0 +1,54 @@
+@mixin specialDiv($paddingValue) {
+    background-color: red;
+    font-size: 25px;
+    color: white;
+    border: 1px solid green;
+    padding : $paddingValue;
+}
+
+.div1 {
+    @include specialDiv(25rem);
+}
+
+.div2 {
+    @include specialDiv(50rem);
+}
+
+//media query
+@mixin responsive($breakpoint){
+    @if $breakppoint == phone {
+        @media only screen and (max-width: 600px) { @content }; 
+    }
+    @if $breakppoint == tab-port {
+        @media only screen and (max-width: 900px) { @content }; 
+    }
+    @if $breakppoint == tab-land {
+        @media only screen and (max-width: 1400px) { @content }; 
+    }
+    @if $breakppoint == big-desktop {
+        @media only screen and (max-width: 1800px) { @content }; 
+    }
+}
+
+@include responsive(phone){
+    padding: 4px;
+    color: white;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+
+    @include responsive(tab-land){
+        font-size: 56.25%;
+    }
+    @include responsive(tab-port){
+        font-size: 50%;
+    }
+    @include responsive(phone){
+        font-size: 43.75%;  //7px = 1rem
+    }
+    @include responsive((big-desktop)){
+        font-size: 75%;
+    }
+}

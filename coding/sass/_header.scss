@@ -1,0 +1,30 @@
+//mixins are functions in javascript which allows us to takes some part of code and put whereever we need
+@mixin flexCenter($direction, $background) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: $direction;
+    background: $background;
+}
+
+header {
+    height: 100vh;
+    @include flexCenter(column, blue);
+    // display: flex;  //allows as to take some code and make it isnside mixins and import here
+    // justify-content: center;
+    // align-items: center;
+    color: $textColor;
+    button {
+        background: $primaryBtn;
+        &:hover{
+            background: green;
+        }
+        &::after{
+            content: "helloooooo";
+        }
+    }
+    p {
+        columns: $textColor;
+    }
+}

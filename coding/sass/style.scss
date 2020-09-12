@@ -1,0 +1,33 @@
+@import "./variables";
+
+@import "./header";  //we can also write the styling in another file and import it here
+
+//creating into another file as _variables.scss and importing it here
+// $primaryBtn : rgb(83, 13, 13);
+// $textColor : rgb(235, 29, 29);
+
+//importing this header from another file called _header.scss
+// header {
+//     background: lightblue;
+//     display: flex;
+//     justify-content: center;
+//     color: $textColor;
+//     button {
+//         background: $primaryBtn;
+//         &:hover{
+//             background: green;
+//         }
+//         &::after{
+//             content: "helloooooo";
+//         }
+//     }
+//     p {
+//         columns: $textColor;
+//     }
+// }
+
+.contact button {
+    @include flexCenter(row, orange);
+    background: $primaryBtn;
+    width: 100%-20%;
+}
