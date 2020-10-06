@@ -43,3 +43,77 @@ function revString(str){
     return reverseStr(str.subStr(1)) + str.charAt(0);
 }
 console.log(reverseStr("kurigala"));
+
+//-----------------------------------------------------------
+//how to check if object is array or not?
+var arrayList = [1,3,5,7,9];
+console.log(typeof(arrayList));
+if(Object.prototype.toString.call(arrayList) === '[object Array]') {
+    console.log('Array!');
+}
+//If you are using jQuery then you can also used jQuery isArray method:
+//Array.isArray is supported by Chrome 5, Firefox 4.0, IE 9, Opera 10.5 and Safari 5
+// if($.isArray(arrayList)){
+//     console.log("array");
+// }else {
+//     console.log('Not an array');
+// }
+
+//How to make array as empty in javacript
+var array = [1,22,33,4,55];
+console.log(array);
+var array = []; //method 1
+console.log(array);
+array.length = 0; //method2
+array.splice(0, array.length);
+
+//how to check if num is an integer?
+function check(num){
+    return num % 1 === 0;
+}
+console.log(check(4));
+console.log(check(12.2));
+console.log(check(34.5));
+console.log(check(40));
+
+//--------------------------------------------------------------
+//make this work duplicate([1,2,3,4,5]); -> [1,2,3,4,5,1,2,3,4,5]
+function duplicate(array){
+    return array.concat(array);
+}
+console.log(duplicate([1,2,3,4,5]));
+
+//-------------------------------------------------------------------------------------------
+//closure example
+function mul(x){
+    return function (y){  //annonymous function
+        return function (z){  //annonymous function
+            return x*y*z;
+        }
+    }
+}
+console.log(mul(2)(3)(4));
+console.log(mul(12)(13)(24));
+
+//--------------------------------------------------------------------------------------------
+function createBase(ele){
+return function(N){
+    return ele+N;
+}
+}
+console.log(createBase(6)(10)) ;
+console.log(createBase(6)(40)) ; //this can also be writeen as
+
+var addSix = createBase(6);
+console.log(addSix(10));
+
+//------------------------------------------------------------------------------
+//FizzBuzz challenge
+//Create a for loop that iterates up to 100 while outputting "fizz" at multiples of 3,
+// "buzz" at multiples of 5 and "fizzbuzz" at multiples of 3 and 5.
+
+for(var i=1; i <=100; i++){
+    let f = i % 3 == 0,
+    b = i % 5 == 0;
+    console.log(f ? ( b ? 'FizzBuzz' : 'Fizz') : b ? 'Buzz' : i);
+}
