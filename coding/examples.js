@@ -152,3 +152,38 @@ items.sort(function(a, b) {
     }
 })
 console.log(items);
+
+//----------------------------------------------------------------------------------
+//palindrome
+function palindrome(string){
+    string = string.replace(/\W/g, '').toLowerCase();
+    return (string == string.split('').reverse().join(''));
+}
+console.log(palindrome('level'));
+console.log(palindrome('levels'));
+console.log(palindrome('madam'));
+
+//----------------------------------------------------------------------------
+function sum(x){
+    return function(y){
+        return x+y;
+    }
+}
+console.log(sum(2)(3));
+
+//---------------------------------------------------------------------------------------------
+for(var i=0; i < 5; i++){
+    setTimeout(function(){console.log(i);}, i * 1000);  //this resulrs 5 5 5 5 5 The reason for this is that each function executed 
+    //within the loop will be executed after the entire loop has completed 
+    //and all will therefore reference the last value stored in i, which was 5.
+}
+
+for(let i=0; i < 5; i++){
+    setTimeout(function(){console.log(i);}, i * 1000);  //using let here instesad of var output is 0,1 2 3 4 
+}
+
+for (var i=0; i<5; i++){
+    (function (x) {
+        setTimeout(function(){console.log(x);}, x*1000);
+    })(i);
+}
