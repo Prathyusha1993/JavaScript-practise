@@ -6,22 +6,25 @@ function person(name, age) {
 const per = new person("edward", 25);
 console.log(per);
 //------------------------------------------------------------------------
-var bar = "global";
-
-let obj = {
-  bar: "obj",
-  foo: foo,
-};
-
-let obj1 = {
-  bar: "obj1",
-};
-
-function foo() {
-  console.log(this.bar);
+function employee(email, contact){
+  this.email = email;
+  this.contact = contact;
 }
 
-foo();
-obj.foo();
-foo.call(obj1);
-new foo();
+const emp = new employee("khdbd@gmail.com", 987659876);
+const emp1 = new employee("srgb@gmail.com", 935662276);
+
+console.log(emp);
+console.log(emp1);
+//------------------------------------------------------------------------------
+var person = {
+  firstName : "prathyusha",
+  lastName : "kurigala",
+  id : 2434,
+  fullName : function(){
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+console.log(person.fullName());
+console.log(person.id);
