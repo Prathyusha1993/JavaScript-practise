@@ -1,0 +1,43 @@
+<!-- hoisting : 
+a variable can be used before it has been declared.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        x=5;
+        elem = document.getElementById("demo");
+        elem.innerHTML = x;
+        var x;
+    </script>
+</body>
+</html>
+
+<!-- ------------------------------------------------------------------------------------ -->
+<script>
+    var x = 5;    //javascript only hoist decalrations, not intializations
+    var y=7;
+    elem = document.getElementById("demo");
+    elem.innerHTML = x + " " + y;  //5 7
+</script>
+
+<script>
+    var x = 5;    
+    elem = document.getElementById("demo");
+    elem.innerHTML = x + " " + y;  //5 undefined
+    var y=7;  //y has been decalred before it is used, but becoz initializations are not hoisted, the value of y is undefined
+</script>
+
+<script>
+    var x = 5;    
+    var y;
+    elem = document.getElementById("demo");
+    elem.innerHTML = x + " " + y;  //5 undefined
+    y=7;
+</script>

@@ -117,3 +117,93 @@ for(var i=1; i <=100; i++){
     b = i % 5 == 0;
     console.log(f ? ( b ? 'FizzBuzz' : 'Fizz') : b ? 'Buzz' : i);
 }
+
+//-----------------------------------------------------------------------------------------
+var arr1 = "john".split('');
+var arr2 = arr1.reverse();
+var arr3 = "jones".split('');
+arr2.push(arr3);
+console.log("array1: length" + arr1.length + " last=" +arr1.slice(-1));
+console.log("array2: length" + arr2.length + " last=" +arr2.slice(-1));
+
+//---------------------------------------------------------------------------------
+console.log("0 || 1 = "+(0 || 1));
+console.log("1 || 2 = "+(1 ||  2));
+console.log("0 && 1 = "+(0 && 1));
+console.log("1 && 2 = "+(1 && 2));
+
+//-----------------------------------------------------------------------------
+var a = {},
+b={key: 'b'},
+c={key: 'c'};
+
+a[b]=123;
+a[c]=456;
+console.log(a[b]);
+//--------------------------------------------------
+console.log((function factorial(n){
+   return ((n>1) ? n*factorial(n-1) : n) 
+})(10)
+)
+//-----------------------------------------------------
+// (function(x) {
+//     return (function(y) {
+//         console.log(x);
+//     })(2)
+// })(1);
+
+//----------------------------------------------------------------------
+var hero = {
+    _name : 'John doe',
+    getSecretidentity : function(){
+        return this._name;
+    }
+}
+
+var identity = hero.getSecretidentity;
+console.log(identity());   //prints undefined becoa we are extractng the method from hero object, so identoty is being invoked in the global context(i.e is window object) where the name property doesnot exists 
+console.log(hero.getSecretidentity());
+
+//----------------------------------------------------------------------------
+//testing 'this' knowledge in below example
+var length = 10;
+function fn(){
+    console.log(this.length);
+}
+var obj = {
+    length: 5,
+    method : function (fn){
+        fn();
+        arguments[0]();  //it is used to access number of arguments injavascrpt function using srguments[] array.
+        //is nothing but calling a fn().inside fn(), now, thescope of this funciron becomes arguments array adn logging the length
+        //of arguments[] will return 2.
+    }
+};
+obj.method(fn, 1);
+//------------------------------------------------------------------------------
+(function (){
+    try{
+        throw new Error();
+    }catch(x){
+        var x=1, y=2;  //inner x not the outer one, there is only one y, which is in the outer scope
+        console.log(x);  //1
+    }
+    console.log(x); //undefined,  
+    console.log(y); //2,   
+})();
+//---------------------------------------------------------------------------------------
+var x=21;
+var girl = function(){
+    console.log(x);  //undefined
+    var x=20;    //intialzations are not hoisted.
+};
+girl();
+//-------------------------------------------------------------------------------
+var obj = {a:1,b:2, c:{age:30}};
+var objclone = Object.assign({}, obj);
+console.log(objclone);
+obj.c.age=43;
+console.log(obj);
+console.log(objclone);
+//------------------------------------
+console.log(typeof typeof 1); //string   typeof 1= "number" and number is string

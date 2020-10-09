@@ -13,6 +13,7 @@ promise.then(function(){
     console.log('some error has occured');
 })
 
+
 //-------------------------------------------------------------
 // var isMomHappy = true;
 
