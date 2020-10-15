@@ -191,3 +191,146 @@ sample.forEach(ele => {
 console.log(copyItems);
 //------------------------------------------------------------------------------------------------------
 //includes method : determines whether the array includes a certain value among the entries, returning true or falase
+const array3=[3,5,7,9];
+console.log(array3.includes(5));
+
+const pets = ['cat', 'dog', 'rat'];
+console.log(pets.includes('rat'));
+console.log(pets.includes('at'));
+
+let arr5=['a', 'b', 'c'];
+console.log(arr.includes('c', 3));  //false becoz 'c' is at 2 position not 3 position
+//------------------------------------------------------------------------------------------------------
+//indexOf method : returns firest element at which the a given eleemnt can be found
+const beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
+console.log(beasts.indexOf('bison'));  //1
+
+const arr6 = [2,9,9];
+console.log(arr6.indexOf(2));  //0
+console.log(arr6.indexOf(7));  //-1
+console.log(arr6.indexOf(9, 2));  //2
+console.log(arr6.indexOf(2, -1));  //-1
+console.log(arr6.indexOf(2, -3));  //0
+
+//find all occurens of an element
+var indices = [];
+var arr7 = ['a', 'b', 'a', 'c', 'a', 'd'];
+var element = 'a';
+var idx = arr7.indexOf(element);
+while(idx != -1){
+    indices.push(idx);
+    idx = arr7.indexOf(element, idx+1);
+}
+console.log(indices);
+
+const sort = [1,3,2,6,2,4,2];
+var empty =[];
+var ele = 2;
+var idx = sort.indexOf(ele);
+while(idx != -1){
+    empty.push(idx);
+    idx = sort.indexOf(ele, idx + 1);
+}
+console.log(empty);
+//-----------------------------------------------------------------------------
+//join() : craetes and returns a new string by combaining all the elements in an array.
+const elements = ['fire', 'air', 'water'];
+console.log(elements.join());
+console.log(elements.join(""));
+console.log(elements.join(" "));
+console.log(elements.join("-"));
+//---------------------------------------------------------------------------------------
+//keys method : returns a new Array iterator object that conatins the key for each index in the array.
+const arraay = ['a', 'b', 'c'];
+const iterator = arraay.keys();
+for(const key of iterator){
+    console.log(key);
+}
+//----------------------------------------------------------------------------------------------
+//map():creates a new array populated with the results of calling a provided function on every element in the calling array.
+const arraymap = [1,4,3,5];
+const resfunc = arraymap.map(array => array*2);
+console.log(resfunc);
+
+const numberss = [1,4,9];
+const resnums = numberss.map(num => Math.sqrt(num));
+console.log(resnums);
+//using map reformating the array objects
+const kvarray = [{key:1, value:10},
+                {key:2, value:20},
+                {key:3, value:30},];
+const reformat = kvarray.map((obj) => {
+    let robj={};
+    robj[obj.key] = obj.value;
+    return robj;
+})
+console.log(reformat);
+
+//mapped array contains undefined
+let numb = [1,2,3,45];
+let filteredItem = numb.map((num, index) => {
+    if(index < 3)
+    return num;
+})
+console.log(filteredItem);
+//------------------------------------------------------------------------------------------
+//pop() : removest the last elements from an array and returns that element so, it changes the lengthn of an array
+const food = ['broccoli', 'kale', 'cauliflower','cabbage', 'celery'];
+console.log(food.pop());  //celery
+console.log(food);  //remaining length of an array
+console.log(food.pop());  //cabbage
+console.log(food);
+//---------------------------------------------------------------------------------------------
+//push() : used to add the elements at end of an array and returns the new array length 
+const animals = ['cow', 'bufflao', 'tiger','goat'];
+console.log(animals.push('lion'));
+console.log(animals);
+console.log(animals.push('pigs', 'girafee','monkey','donkey'));
+console.log(animals);
+
+const veggies = ['potato', 'carrot'];
+const moreveg = ['celery', 'kale'];
+console.log(veggies.concat(moreveg));  //merging two arrays using concat
+Array.prototype.push.apply(veggies,moreveg);  //merging two arrays using apply method
+console.log(veggies);
+//------------------------------------------------------------------------
+//reduce() : executes the reducer function on each element of an arry and results in the single output value.
+const example = [2,5,7,9,12];
+const reducer = (accumalator, currentValue) => accumalator+currentValue;
+console.log(example.reduce(reducer));
+console.log(example.reduce(reducer, 10));
+
+let initialValue = 0;
+const sum = [{x:1},{x:2}, {x:3}].reduce((accumalator, currentValue) => {
+    return accumalator+currentValue.x;
+}, initialValue)
+console.log(sum);
+
+//flattened array of arrays:
+let flattened = [[1,2], [3,4], [5,6]].reduce((accumalator, currentValue) => 
+     accumalator.concat(currentValue)
+,[])
+console.log(flattened);
+
+//counting instances ofvalues in an objec:
+let names = ['Alice', 'Bob','Tiff', 'Bruce', 'Alice'];
+let countedNames = names.reduce((allNames, name) => {
+    if(name in allNames){
+        allNames[name]++
+    }else{
+        allNames[name]=1;
+    }
+    return allNames;
+}, {})
+console.log(countedNames);
+//--------------------------------------------------------------------------------------------------
+//reverse() : reverses an array in place, first element becomes last and last becomes first and it changes the original array
+const exam = ['one', 'two', 'three'];
+console.log(exam.reverse());
+//-----------------------------------------------------------------------------------------------
+//shift() : removes the first element in the array and returns the removed elemnt and lenth of array
+const ex= [2,4,6,8,12,14,16];
+console.log(ex.shift());
+console.log(ex);
+console.log(ex.shift());
+console.log(ex);
