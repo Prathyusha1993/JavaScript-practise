@@ -334,3 +334,75 @@ console.log(ex.shift());
 console.log(ex);
 console.log(ex.shift());
 console.log(ex);
+//------------------------------------------------------------------------------------------
+//slice(): returns a shollw copy of array into a new array like object from statr index to end index
+const petss = ['cat', 'dog', 'snake', 'rat', 'tortise'];
+console.log(petss.slice(1,3));
+console.log(petss.slice(2));
+console.log(petss.slice(1,7));
+//---------------------------------------------------------------------------------------------------
+//sort(): sorts the elemnts of an array in place and returns sorted array.
+const months = ['dec', 'oct', 'nov', 'jan','sep'];
+console.log(months.sort());
+
+const simple = [1,30,46,21,10000000];
+console.log(simple.sort());
+
+let duplicate = [4,2,5,1,3,4];
+console.log(duplicate.sort());
+duplicate.sort((a,b)=>a-b);
+console.log(duplicate);
+
+const itemss = [
+    {name:'Edward', age:23},
+    {name:'Bruce', age:23},
+    {name:'Alice', age:23},
+    {name:'john', age:23},
+    {name:'dimple', age:23}
+];
+//sort by age
+itemss.sort((a, b)=>{
+    return a.age - b.age;
+})
+//sort by nmae:
+itemss.sort((a,b) => {
+    var nameA = a.name.toLowerCase();
+    var nameB = a.name.toLowerCase();
+    if(nameA > nameB){
+        return 1
+    }
+    if(nameA < nameB){
+        return 1
+    }
+    return 0;
+});
+//----------------------------------------------------------------------------------
+//splice() : method changes the content of array by removing or replacing the existing elements 
+const mon = ['jan', 'apr', 'mar', 'june'];
+mon.splice(1,0,'feb');
+console.log(mon);
+mon.splice(4,1,'oct');
+console.log(mon);
+mon.splice(2,0,'jan');
+console.log(mon);
+mon.splice(3,1);
+console.log(mon);
+mon.splice(2);
+console.log(mon);
+mon.splice(0,2,'parrot','anemone', 'blue');
+console.log(mon);
+//--------------------------------------------------------------------------------------------------
+//toLocalString(): returns a string representing elementsof an array, and converted to strings using toLocalString
+const array9 = [1,'a', new Date('21 Dec 1993 13:23:00 UTC')];
+let final = array9.toLocaleString('en', {timezone:'UTC'});
+console.log(final);
+//--------------------------------------------------------------------------------------------
+//toString() : returns a string representing the specifiedarray and its lemenets
+const arr9 =[1,2,'c','2f'];
+console.log(arr9.toString());
+//------------------------------------------------------------------------------------------------
+//unshift() : method add one or more elements at front of an array
+const arr8 = [1,3,5];
+arr8.unshift(12);
+arr8.unshift(-2,-1);
+console.log(arr8);
