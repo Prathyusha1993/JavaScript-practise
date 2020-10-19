@@ -103,3 +103,6 @@ const removeDup = (str) => {
   return arr4.join("").replace(",", "").replace("", " ");
 };
 console.log(removeDup("Int32,Int32,Int32,Int32,Int32,Int32,Double,Double,Double"));
+
+const string = "mozilla";
+console.log(string.length);
