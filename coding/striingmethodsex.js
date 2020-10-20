@@ -71,4 +71,59 @@ console.log(str4.includes('To be', 1));
 console.log(str4.includes('TO BE'));
 console.log(str4.includes(''));
 //-------------------------------------------------------------------------------------------------------
-//indexOf() : 
+//indexOf() : returns the index within the calliing string object of first occurence of specified value and returns -1 if not ofund
+const paragraph = "The quick brown fox jumps over the lazy dog.";
+console.log(paragraph.indexOf('dog'));
+
+console.log('hello world'.indexOf(''));
+console.log('hello world'.indexOf('', 0));
+console.log('hello world'.indexOf('', 3));
+console.log('hello world'.indexOf('', 8));
+console.log('Blue Whale'.indexOf('Blue'));
+console.log('Blue Whale'.indexOf('Blute'));
+console.log('Blue Whale'.indexOf('Whale', 5));
+console.log('Blue Whale'.indexOf('Whale', 0));
+console.log('Blue Whale'.indexOf('Whale', 7));
+console.log('Blue Whale'.indexOf('blue'));   //case sentive
+//checking the occurance while using indexOf()
+'Blue Whale'.indexOf('Blue') !== -1  //true
+'Blue Whale'.indexOf('Bloe') !== -1  //false
+
+const str5 = "brave new world";
+console.log(str5.indexOf('w'));
+console.log(str5.indexOf('new'));
+
+const myString    = 'brie, pepper jack, cheddar'
+const myCapString = 'Brie, Pepper Jack, Cheddar'
+console.log(myString.indexOf('cheddar'));
+console.log(myCapString.indexOf('cheddar'));  
+console.log(myCapString.indexOf('Pepper'));
+
+//count occurance of a leter in atring
+const str6 = "To be, or not to be, that is the question.";
+let count = 0;
+let position = str6.indexOf('e');
+while(position !== -1){
+    count++;
+    position =  str6.indexOf('e', position+1)
+}
+console.log(count);  //4
+console.log(str5.indexOf('w'));
+console.log(str5.lastIndexOf('w'));
+console.log(str5.indexOf('new'));
+console.log(str5.lastIndexOf('new'));
+//-----------------------------------------------------------------------------------------------
+//localeCompare() : returns a number indicatng whether a refernce stirng comes before, sfter or same as givrn string
+console.log('a'.localeCompare('c)'));
+console.log('check'.localeCompare('against'));
+console.log('a'.localeCompare('a'));
+//----------------------------------------------------------------------------------------------
+//match() : retrieves the result of matching a string against a regular expression
+const para = "The quick brown fox jumps over the lazy dog. It barked.";
+const regex = /[A-Z]/g;
+const found = para.match(regex);
+console.log(found);
+//------------------------------------------------------------------------------------
+//padEnd() : method pads the current string with a igven stringso that theresulting string reaches a givn length
+const string2 = "Breaded Mushrooms";
+console.log(string2.padEnd(25,'.'));
