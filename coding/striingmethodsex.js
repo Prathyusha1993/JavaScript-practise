@@ -125,5 +125,60 @@ const found = para.match(regex);
 console.log(found);
 //------------------------------------------------------------------------------------
 //padEnd() : method pads the current string with a igven stringso that theresulting string reaches a givn length
+//The padding is applied from the end of the current string.
 const string2 = "Breaded Mushrooms";
 console.log(string2.padEnd(25,'.'));
+
+console.log('abc'.padEnd(10));
+console.log('abc'.padEnd(10, 'foo'));
+console.log('abc'.padEnd(6, '123456'));
+console.log('abc'.padEnd(1));
+//-----------------------------------------------------------------------------------------------
+//padStart() :  method pads the current string with another string until the resulting string reaches the given length. The padding is applied from the start of the current string.
+const string3 = "5";
+console.log(string3.padStart(2, '0'));
+
+const fullnum = '237654934895394';
+const lastnum = fullnum.slice(-4);
+const result = lastnum.padStart(fullnum.length, '*');
+console.log(result);
+
+console.log('abc'.padStart(10));
+console.log('abc'.padStart(10, 'foo'));
+console.log('abc'.padStart(6, "234567"));
+console.log('abc'.padStart(8,"0"));
+console.log('abc'.padStart(1));
+//---------------------------------------------------------------------------------------------
+//repeat() : returns a new string which containes a specified numbr of copies of string
+const char = "I am really scared of my future. ";
+console.log(char.repeat(4));
+
+//console.log('abc'.repeat(-1));  //invalid count value as error
+console.log('abc'.repeat(0));
+console.log('abc'.repeat(1));
+console.log('abc'.repeat(2));
+console.log('abc'.repeat(3.5));   //converted to integer
+//console.log('abc'.repeat(1/0));  //invalid count value as error
+//----------------------------------------------------------------------------------------------------
+//replace() : method ular returns a new string with samll or matches of paterns 
+//pattern can be reg experssion
+const p = "The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?";
+const regexx = /dog/gi;
+console.log(p.replace(regexx, 'cat'));
+
+let strr = 'Twas the night before Xmas...!';
+let newstr = strr.replace(/xmas/i, 'chirstmas');  //i is for ignore
+console.log(newstr);
+
+let re = /apples/gi;  //g is global and i is ignore
+let strr1 = 'Apples aer round and apple come in differents colors';
+let newStr = strr1.replace(re, 'oranges');
+console.log(newStr);
+
+//switching words in a string
+let reg = /(\w+)\s(\w+)/;
+let nameStr = 'Prathyusha Kurigala';
+let newStrr = nameStr.replace(reg, '$2, $1');
+console.log(newStrr);
+//-------------------------------------------------------------------------------------
+//search() :
