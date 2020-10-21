@@ -181,4 +181,101 @@ let nameStr = 'Prathyusha Kurigala';
 let newStrr = nameStr.replace(reg, '$2, $1');
 console.log(newStrr);
 //-------------------------------------------------------------------------------------
-//search() :
+//search() : method executes a search for amatch bewtween regular experssion and this sstring object
+const paragraph1 = 'The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?';
+const regexp = /[^\w\s]/g;  //any character that is not word character or whtespacce
+console.log(paragraph1.search(regexp));
+console.log(paragraph1[paragraph1.search(regexp)]);
+
+let exp = /[A-Z]/g;
+let ex = /[.]/g;
+const strrr = 'hey JudE';
+console.log(strrr.search(exp));
+console.log(strrr.search(ex));  //if not present returns -1 '.' is not present in strrr
+//---------------------------------------------------------------------------------------------------
+//slice() :extracts a section of a string and returns a new string without modifying the original string
+const demo = "The quick brown fox jumps over the lazy dog.";
+console.log(demo.slice(32));
+console.log(demo.slice(4,19));
+console.log(demo.slice(-4));
+console.log(demo.slice(-9, -5));
+
+let sample = "The morning is upon us.";
+console.log(sample.slice(1,8));
+console.log(sample.slice(4,-2));
+console.log(sample.slice(30));
+console.log(sample.slice(12));
+console.log(sample.slice(-3));
+console.log(sample.slice(-1));
+console.log(sample.slice(-3, -1));
+console.log(sample.slice(0,-1));
+console.log(sample.slice(11, -7));
+//------------------------------------------------------------------------------------------------
+//split() : divides he string into an ordered list of substrings, and puts them into a new array and returns an array
+const string9 = "its sun set time lets go to beach";
+let words = string9.split(' ');
+console.log(words[3]);
+
+let charac = string9.split('');
+console.log(charac[9]);
+
+let sentenc = string9.split();
+console.log(sentenc);
+
+//returning limited number of splits
+const myString1 = "hello whats up how are you doing?";
+console.log(myString1.split(' ', 3));
+//------------------------------------------------------------------------------------------------
+//startsWith() : method determines whether a string begins with charater of specified stringreturning true or false
+const line = 'planning for future from now onwords is good in few things';
+console.log(line.startsWith('plan'));
+console.log(line.startsWith('plan', 3));
+//-------------------------------------------------------------------------------------------------------------
+//substring() : returns the part of string between start and end indexes
+const name = "Prathyusha";
+console.log(name.substring(1, 5));
+//--------------------------------------------------------------------
+//toLowerCase() : rerurns string value converted to lower case
+const lines = "This is My happy Place";
+console.log(lines.toLowerCase());
+console.log('ALPHABET'.toLowerCase());
+//-----------------------------------------------------------------------
+//toUpperCase() : returns the string value converted to upper case
+console.log(lines.toUpperCase());
+console.log('alphabet'.toUpperCase());
+//----------------------------------------------------------------------------------------------
+//toString() : method returns a string represtening the specified object
+const stringObj = new String('foo');
+console.log(stringObj);
+console.log(stringObj.toString());  //displays string value of string object
+
+var y = new String('Hello world');
+console.log(y.toString());
+//------------------------------------------------------------------------------------------------
+//trim() : used to remove the whitespaces from both ends of a string
+const greetings = "       Hello World hi            ";
+console.log(greetings.trim());
+//--------------------------------------------------------------------------------------------
+//trimEnd()/trimRight(): remove the whitespaces from end of a string
+console.log(greetings.trimEnd());
+//-----------------------------------------------------------------------------------
+//trimStart()/trimLeft() : removes the whitespaces from start of string
+console.log(greetings.trimStart());
+//------------------------------------------------------------------------------------------------------
+//apply() : methods calls a function with a given this value and arguments provided as ana rray
+const numbers = [5,6,7,8,9];
+const max = Math.max.apply(null, numbers);
+console.log(max);
+const min = Math.min.apply(null, numbers);
+console.log(min);
+//----------------------------------------------------------------------------------------------
+//call() : methods callas a function with given this values and arguments provided
+function Product(name, price){
+    this.name = name;
+    this.price = price;
+}
+function Food(name, price){
+    Product.call(this,name,price);
+    this.category = 'food';
+}
+console.log(new Food('cheese', 5).name);
