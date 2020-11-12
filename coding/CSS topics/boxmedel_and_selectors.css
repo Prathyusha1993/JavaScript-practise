@@ -1,0 +1,59 @@
+/* In css the term box model is used when talking ablout design and layout. */
+/* It consists padding, Border, margin */
+/* content : the content of box, where text and images appear
+Padding: clears an area around the content. the padding is transparent
+Border : A border taht goes around thepadding and content
+Margin ; clears an area outside the border. The margin is transparent. */
+
+div {
+    background-color: lightgrey;
+    width: 300px;
+    padding: 50px;
+    border: 15px solid green;
+    margin: 20px;
+}
+
+/* CSS selectors : used to find the HTML elements you want to style*/
+/* 1)SImple selectors : select elements based on name, id, class
+2)combination selectors : selelct elements based on specific relationship between them
+3)pseudo-class selectors: select elemets based on a certain state
+4)pseudo-elements selectors: select and style a part of an element
+5)attribute selectors: select elements based on an attribute or attribute value */
+
+/* Element selector: */
+p{
+    text-align: center;
+    color: red;
+}
+
+/* id selector */
+#para1 {
+    text-align: center;
+    color: blue;
+}
+
+/* class selector */
+.class {
+    text-align: center;
+    color: green;
+}
+/* specify that only specific HTML element should be affected by a .class */
+p.center {
+text-align: center;
+color: navy;
+font-size: large;
+}
+
+/* universal selector */
+*{
+    font-size: 100%;
+    color: lightpink;
+    text-align: center;
+}
+
+/* grouping selectors */
+h1, h2, h3, p {
+    text-align: left;
+    color: white;
+    background-color: black;
+}
